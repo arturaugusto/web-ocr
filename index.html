@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OCR</title>  
+  <link rel="stylesheet" href="dist/styles.css">
+</head>
+  <body>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">
+          OCR <span class="is-italic">log</span> <span class="has-text-link-dark">|</span> <span class="has-text-warning is-size-7">Garagem </span> <span class="">CTMetro</span>
+        </h1> 
+        <p class="subtitle">
+          selecione a região com o número
+        </p>
+
+        <div class="columns">
+          <div class="column">
+            <div class="card">
+              <div class="card-content" style="min-height: 440px;">
+                <h4 id="loading">carregando...</h4>
+                <video id="video" autoplay playsinline style="display: none;"></video>
+                <canvas id="canvas0" style="cursor: crosshair"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <div class="column">
+
+            <div class="card">
+              <div class="card-content" style="min-height: 440px;">
+                <p>
+                  <label for="gamma">Contraste</label>
+                  <input type="range" id="gamma" name="gamma" value="5" min="2" max="40">
+                </p>
+
+                <p>
+                  <label for="gamma">Dilatação</label>
+                  <input type="range" id="dilate" name="dilate" value="0" min="0" max="2" style="width: 80px;">
+                </p>
+                
+                <p>
+                  <input type="checkbox" id="inverter" name="inverter">
+                  <label for="inverter">Inverter</label>&nbsp;<span class="is-size-7">(fundo branco = melhores resultados)</span>
+                </p>
+
+                <canvas id="canvas"></canvas>
+
+                <p>
+                  <p>OCR: <span id="progress" class="is-size-3"></span></p>
+                  
+                  <span>confiança: 
+                    <span id="confidence"></span>
+                  </span> 
+                  
+                  <span style="position: absolute;left: 140px;" class="is-size-7 has-text-grey-light">
+                    (filtrar > <input class="is-size-7" type="number" id="minconf" value="70" min="0" max="99"> %)
+                  </span>
+                  
+                  <p>timestamp:
+                    <span id="isoString"></span>
+                    <div class="is-size-7 has-text-grey-light">
+                      (intervalo do log <input style="max-width: 80px;" class="is-size-7" type="number" id="loginterval" value="20" min="0"> ms)
+                    </div>
+                  </p>
+
+
+                </p>
+                <br>
+                <p>
+                  <p>Tipo de fonte:</p>
+                  <a href="./?font=digits">digits</a> |
+                  <a href="./?font=7seg">7seg</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <div class="card">
+              <div class="card-content">
+                <div>
+                  <input type="checkbox" id="ocrlog" name="ocrlog">
+                  <label for="ocrlog">log</label>
+                </div>
+                <textarea id="ocrlogtxt" name="ocrlogtxt" rows="10" class="textarea"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="has-text-info">Desenvolvido por: </span> <span>Artur Augusto Martins </span>  | <span class="has-text-info">arturm@ipt.br</span> 
+      </div>
+    </section>
+    <script src="./dist/main.js"></script>
+  </body>
+</html>
