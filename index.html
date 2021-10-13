@@ -28,10 +28,16 @@
             <div class="card">
               <div class="card-content" style="min-height: 440px;">
                 <h4 id="loading">carregando...</h4>
-                <video id="video" autoplay playsinline style="display: none;"></video>
+                <video id="video" autoplay playsinline style="display: none;">
+                </video>
                 <canvas id="canvas0" style="cursor: crosshair"></canvas>
               </div>
             </div>
+
+            <!-- <video id="videoFile" autoplay playsinline controls loop muted>
+              <source src="dmm.mp4" type="video/mp4">
+            </video> -->
+
           </div>
 
           <div class="column">
@@ -54,6 +60,7 @@
                 </p>
 
                 <canvas id="canvas"></canvas>
+                <canvas id="canvasBbox"></canvas>
 
                 <p>
                   <p>OCR: <span id="progress" class="is-size-3"></span></p>
@@ -63,7 +70,7 @@
                   </span> 
                   
                   <span style="position: absolute;left: 140px;" class="is-size-7 has-text-grey-light">
-                    (filtrar > <input class="is-size-7" type="number" id="minconf" value="70" min="0" max="99"> %)
+                    (filtrar > <input class="is-size-7" type="number" id="minconf" value="90" min="0" max="99"> %)
                   </span>
                   
                   <p>timestamp:
